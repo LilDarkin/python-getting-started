@@ -1,13 +1,36 @@
-# Python: Getting Started
+# Django Tutorial Polls App
 
-A barebones Django app, which can easily be deployed to Heroku.
+This repository contains the complete code for the [Django](https://www.djangoproject.com/) project's [tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) `polls` app. The code should mirror the code you've written at the end of [Part 7](https://docs.djangoproject.com/en/2.1/intro/tutorial07/). 
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out for instructions on how to deploy this app to Heroku and also run it locally.
+The `SECRET_KEY` variable in `mysite/settings.py` has been scrubbed, and instructions for regenerating the key are available in the accompanying DigitalOcean [tutorial](https://www.digitalocean.com/community/tutorials).
 
-Alternatively, you can deploy it using this Heroku Button:
+This app is meant to be used as a reference Django app for several DigitalOcean tutorials, and should not be deployed in production.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+----
 
-For more information about using Python on Heroku, see these Dev Center articles:
+### Quickstart
 
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+Polls is a simple Django app to conduct Web-based polls. For each question, visitors can choose between a fixed number of answers.
+
+
+1. Add `polls` to your `INSTALLED_APPS` setting like this:
+
+```python
+INSTALLED_APPS = [
+        ...
+        'polls',
+    ]
+```
+
+2. Include the polls URLconf in your project `urls.py` like this:
+
+```python
+path('polls/', include('polls.urls')),
+```
+
+3. Run `python manage.py migrate` to create the polls models.
+
+4. Start the development server and visit http://127.0.0.1:8000/admin/
+   to create a poll (you'll need the Admin app enabled).
+
+5. Visit http://127.0.0.1:8000/polls/ to participate in the poll.
